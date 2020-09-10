@@ -720,7 +720,12 @@ void *Event_HandlerThread(void *threadid)
     /* create the message queue */
     mq = mq_open(EVENT_QUEUE_NAME, O_CREAT | O_RDONLY, 0644, &attr);
 
-    CHECK((mqd_t)-1 != mq);
+    if (mq == (mqd_t)-1) {
+        fprintf(stderr, "%s:%d: ", __func__, __LINE__);
+        perror("mq == (mqd_t)-1");
+        pthread_exit(NULL);
+    }
+
     do
     {
         ssize_t bytes_read;
@@ -728,7 +733,12 @@ void *Event_HandlerThread(void *threadid)
         /* receive the message */
         bytes_read = mq_receive(mq, buffer, MAX_SIZE, NULL);
 
-        CHECK(bytes_read >= 0);
+        if (bytes_read < 0) {
+            fprintf(stderr, "%s:%d: ", __func__, __LINE__);
+            perror("bytes_read < 0");
+            break;
+        }
+
 	if (buffer != NULL)
 	{
         buffer[bytes_read] = '\0';
