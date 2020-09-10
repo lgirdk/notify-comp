@@ -92,7 +92,7 @@
 extern ANSC_HANDLE bus_handle;
 
 /*CID : 121784 Parse warning*/
-extern void MsgPosttoQueue(char *pMsgStr);
+static void MsgPosttoQueue(char *pMsgStr);
 
 #define NUM_NOTIFYMASK_TYPES (sizeof(notifyMask_type_table)/sizeof(notifyMask_type_table[0]))
 
@@ -840,7 +840,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
 #endif
 }
 
-void MsgPosttoQueue(char *pMsgStr)
+static void MsgPosttoQueue(char *pMsgStr)
 {
 	mqd_t mq;
 	char buffer[MAX_SIZE] ={0};
