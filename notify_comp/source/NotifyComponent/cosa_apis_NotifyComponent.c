@@ -66,6 +66,8 @@
 #define TR069_NOTIFICATION_PARAM     "Device.TR069Notify.X_RDKCENTRAL-COM_TR069_Notification"
 #define CONNECTED_CLIENT_STR         "Connected-Client"
 
+static void MsgPosttoQueue(char *pMsgStr);
+
 #ifndef DYNAMIC_Notify
 	typedef  struct _Notify_param
 	{ 
@@ -683,7 +685,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
 #endif
 }
 
-void MsgPosttoQueue(char *pMsgStr)
+static void MsgPosttoQueue(char *pMsgStr)
 {
 	mqd_t mq;
 	char buffer[MAX_SIZE];
