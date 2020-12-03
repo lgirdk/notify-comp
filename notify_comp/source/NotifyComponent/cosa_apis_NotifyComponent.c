@@ -545,14 +545,14 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                 if (rc != EOK)
                 {
                     ERR_CHK(rc);
-                    return FALSE;
+                    return /* FALSE */;
                 }
 
                 rc = strcpy_s(bus, sizeof(bus) ,"/com/cisco/spvtg/ccsp/webpaagent");
                 if (rc != EOK)
                 {
                     ERR_CHK(rc);
-                    return FALSE;
+                    return /* FALSE */;
                 }
 
 		if(strstr(MsgStr,"Connected-Client"))
@@ -561,7 +561,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                         if (rc != EOK)
                         {
                             ERR_CHK(rc);
-                            return FALSE;
+                            return /* FALSE */;
                         }
 			clientMsg = TRUE;
 			if (strstr(MsgStr, ",Connected"))
@@ -575,7 +575,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                         if (rc != EOK)
                         {
                             ERR_CHK(rc);
-                            return FALSE;
+                            return /* FALSE */;
                         }
 		}
 
@@ -585,7 +585,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                         if (rc != EOK)
                         {
                             ERR_CHK(rc);
-                            return FALSE;
+                            return /* FALSE */;
                         }
             presence_notify = TRUE;
         }
@@ -689,13 +689,13 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                 if (rc != EOK)
                 {
                     ERR_CHK(rc);
-                    return FALSE;
+                    return /* FALSE */;
                 }
                 rc = strcpy_s(bus, sizeof(bus),CCSP_DBUS_PATH_MS);
                 if (rc != EOK)
                 {
                     ERR_CHK(rc);
-                    return FALSE;
+                    return /* FALSE */;
                 }
 
 		if( AnscStrStr(MsgStr, CONNECTED_CLIENT_STR) )
@@ -704,7 +704,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                   if (rc != EOK)
                   {
                      ERR_CHK(rc);
-                     return FALSE;
+                     return /* FALSE */;
                   }
 		}
 		else
@@ -713,7 +713,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                   if (rc != EOK)
                   {
                      ERR_CHK(rc);
-                     return FALSE;
+                     return /* FALSE */;
                   }
 		}
 
@@ -744,13 +744,13 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                 if (rc != EOK)
                 {
                     ERR_CHK(rc);
-                    return FALSE;
+                    return /* FALSE */;
                 }
                 rc = strcpy_s(bus, sizeof(bus) ,"/com/cisco/spvtg/ccsp/wifi");
                 if (rc != EOK)
                 {
                     ERR_CHK(rc);
-                    return FALSE;
+                    return /* FALSE */;
                 }
 
 		if(strstr(MsgStr,"Connected-Client"))
@@ -759,7 +759,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                         if (rc != EOK)
                         {
                             ERR_CHK(rc);
-                            return FALSE;
+                            return /* FALSE */;
                         }
 		}
 		else
@@ -768,7 +768,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
                         if (rc != EOK)
                         {
                             ERR_CHK(rc);
-                            return FALSE;
+                            return /* FALSE */;
                         }
 		}
 					
@@ -801,13 +801,13 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
         if (rc != EOK)
         {
             ERR_CHK(rc);
-            return FALSE;
+            return /* FALSE */;
         } 
         rc = strcpy_s(bus, sizeof(bus),"/com/cisco/spvtg/ccsp/meshagent");
         if (rc != EOK)
         {
             ERR_CHK(rc);
-            return FALSE;
+            return /* FALSE */;
         }
         
 
@@ -815,7 +815,7 @@ Notify_To_PAs(UINT PA_Bits, char* MsgStr)
         if (rc != EOK)
         {
             ERR_CHK(rc);
-            return FALSE;
+            return /* FALSE */;
         }
 
         ret = CcspBaseIf_setParameterValues(
