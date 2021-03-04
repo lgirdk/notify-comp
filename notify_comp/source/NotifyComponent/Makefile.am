@@ -19,9 +19,8 @@
 
 bin_PROGRAMS = notify_comp 
 
-AM_CPPFLAGS = -I$(top_srcdir)/hal/include \
+AM_CPPFLAGS = \
 		-I$(top_srcdir)/source/NotifyComponent \
-		-I=${includedir} \
 		-I=${includedir}/ccsp
 
 
